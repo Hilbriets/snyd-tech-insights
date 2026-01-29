@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import { Layout } from "@/components/layout/Layout";
 import { PageBanner } from "@/components/shared/PageBanner";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { PremiumCard } from "@/components/premium/PremiumCard";
+import { ScrollReveal } from "@/components/premium/ScrollReveal";
+import { HUDLabel } from "@/components/premium/HUDLabel";
+import { TechGrid } from "@/components/premium/TechGrid";
 import { 
   Code, 
   Coffee, 
@@ -10,69 +14,65 @@ import {
   BarChart3, 
   Box,
   ArrowRight,
-  CheckCircle2
+  Check,
+  Zap
 } from "lucide-react";
 
 const services = [
   {
     icon: Code,
     title: "Python Programming",
-    description: "From basics to advanced applications including web development, automation, and data analysis. Perfect for beginners and intermediate programmers.",
+    description: "From fundamentals to advanced applications—web development, automation, and data analysis.",
     features: [
       "Core Python Fundamentals",
       "Web Development with Django",
       "Data Analysis & Visualization",
       "Automation Scripts",
     ],
-    color: "from-blue-500 to-cyan-500",
   },
   {
     icon: Coffee,
     title: "Java Development",
-    description: "Comprehensive Java programming courses covering object-oriented concepts, enterprise applications, and Android development.",
+    description: "Comprehensive Java training covering OOP, enterprise applications, and Android development.",
     features: [
       "Core Java & OOP Concepts",
       "Spring Framework",
       "Android App Development",
       "Enterprise Applications",
     ],
-    color: "from-orange-500 to-red-500",
   },
   {
     icon: Brain,
-    title: "Artificial Intelligence & Machine Learning",
-    description: "Learn AI/ML concepts with practical implementations using popular frameworks like TensorFlow and PyTorch.",
+    title: "AI & Machine Learning",
+    description: "Practical AI/ML implementations using TensorFlow, PyTorch, and industry frameworks.",
     features: [
       "Machine Learning Algorithms",
-      "Deep Learning with Neural Networks",
-      "Computer Vision Applications",
+      "Deep Learning Networks",
+      "Computer Vision",
       "NLP Fundamentals",
     ],
-    color: "from-purple-500 to-pink-500",
   },
   {
     icon: BarChart3,
-    title: "Data Science & Analytics",
-    description: "Master data science tools and techniques to extract insights from data and make data-driven decisions.",
+    title: "Data Science",
+    description: "Master data science tools and techniques to extract insights and drive decisions.",
     features: [
       "Data Analysis with Pandas",
       "Statistical Analysis",
-      "Machine Learning for Data Science",
+      "ML for Data Science",
       "Data Visualization",
     ],
-    color: "from-green-500 to-teal-500",
   },
   {
     icon: Box,
-    title: "3D Printing Technology",
-    description: "Hands-on training in 3D printing technology from design to production for prototyping and manufacturing.",
+    title: "3D Printing",
+    description: "Hands-on training from design to production for prototyping and manufacturing.",
     features: [
       "3D Modeling & Design",
-      "Printer Operation & Maintenance",
+      "Printer Operations",
       "Material Selection",
       "Prototyping Services",
     ],
-    color: "from-amber-500 to-yellow-500",
   },
 ];
 
@@ -80,77 +80,95 @@ const Services = () => {
   return (
     <Layout>
       <PageBanner
-        title="Our Services"
-        subtitle="Empowering You with Cutting-Edge Technology Skills"
+        title="Technology Programs"
+        subtitle="Industry-aligned training designed to build real-world skills that matter."
+        label="Services"
+        labelIcon={Zap}
       />
 
       {/* Intro */}
-      <section className="py-16">
+      <section className="section-padding-sm bg-background">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-heading font-bold mb-4">
-              Technology Education & Training
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              We specialize in providing workshops on the latest technologies for school and college students, helping them build successful careers in emerging tech fields.
+          <ScrollReveal className="max-w-3xl mx-auto text-center">
+            <HUDLabel text="Technology Education" className="mb-6" />
+            <h2 className="mb-4">Build Skills That Matter</h2>
+            <p className="text-muted-foreground text-lg">
+              We specialize in practical, project-based workshops for students and professionals. 
+              Our curriculum bridges the gap between academic learning and industry demands.
             </p>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Services Grid */}
-      <section className="section-padding bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="grid gap-8">
+      <section className="section-padding bg-muted/30 relative">
+        <div className="absolute inset-0 tech-grid opacity-30" />
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="space-y-6">
             {services.map((service, index) => (
-              <Card key={index} className="overflow-hidden border-0 shadow-lg hover-lift">
-                <div className="grid lg:grid-cols-3">
-                  <div className={`p-8 bg-gradient-to-br ${service.color} text-white flex flex-col justify-center`}>
-                    <service.icon className="w-12 h-12 mb-4" />
-                    <CardTitle className="text-2xl mb-2 text-white">{service.title}</CardTitle>
-                  </div>
-                  <CardContent className="lg:col-span-2 p-8">
-                    <p className="text-muted-foreground text-lg mb-6">
-                      {service.description}
-                    </p>
-                    <div className="grid sm:grid-cols-2 gap-3">
-                      {service.features.map((feature, fIndex) => (
-                        <div key={fIndex} className="flex items-center gap-2">
-                          <CheckCircle2 className="w-5 h-5 text-primary shrink-0" />
-                          <span>{feature}</span>
+              <ScrollReveal key={index} delay={index * 0.05}>
+                <PremiumCard className="p-0 overflow-hidden">
+                  <div className="grid lg:grid-cols-12 gap-0">
+                    {/* Left Panel */}
+                    <div className="lg:col-span-4 p-8 bg-gradient-to-br from-primary/5 to-secondary/5 border-b lg:border-b-0 lg:border-r border-border/50">
+                      <div className="flex items-start gap-4">
+                        <div className="w-12 h-12 rounded-xl bg-gradient-primary flex items-center justify-center shrink-0">
+                          <service.icon className="w-6 h-6 text-white" />
                         </div>
-                      ))}
+                        <div>
+                          <h3 className="font-heading text-xl font-semibold mb-2">{service.title}</h3>
+                          <p className="text-muted-foreground text-sm leading-relaxed">
+                            {service.description}
+                          </p>
+                        </div>
+                      </div>
                     </div>
-                  </CardContent>
-                </div>
-              </Card>
+                    
+                    {/* Right Panel - Features */}
+                    <div className="lg:col-span-8 p-8">
+                      <div className="grid sm:grid-cols-2 gap-4">
+                        {service.features.map((feature, fIndex) => (
+                          <div key={fIndex} className="flex items-center gap-3">
+                            <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center">
+                              <Check className="w-3 h-3 text-primary" />
+                            </div>
+                            <span className="text-sm">{feature}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </PremiumCard>
+              </ScrollReveal>
             ))}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-snyd relative overflow-hidden">
-        <div 
-          className="absolute inset-0 opacity-10"
-          style={{
-            backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
-            backgroundSize: "40px 40px",
-          }}
-        />
+      <section className="py-28 bg-snyd-navy relative overflow-hidden">
+        <TechGrid variant="dark" />
+        
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[150px]" />
+        
         <div className="container mx-auto px-4 relative z-10 text-center">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-4">
-            Ready to Learn?
-          </h2>
-          <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-            Join our next batch and start your journey in technology
-          </p>
-          <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90 text-lg px-8">
-            <Link to="/contact">
-              Enroll Now
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Link>
-          </Button>
+          <ScrollReveal>
+            <h2 className="text-white mb-4">Ready to Level Up?</h2>
+            <p className="text-xl text-white/60 mb-10 max-w-2xl mx-auto">
+              Join our next cohort and accelerate your tech career
+            </p>
+            <Button 
+              asChild 
+              size="lg" 
+              className="bg-white text-snyd-navy hover:bg-white/90 text-base px-8 h-12"
+            >
+              <Link to="/contact">
+                Enroll Now
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </Link>
+            </Button>
+          </ScrollReveal>
         </div>
       </section>
     </Layout>
