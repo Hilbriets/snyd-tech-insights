@@ -1,38 +1,57 @@
 import { ReactNode } from "react";
+import { motion } from "framer-motion";
+import { TechGrid } from "@/components/premium/TechGrid";
+import { HUDLabel } from "@/components/premium/HUDLabel";
+import { LucideIcon } from "lucide-react";
 
 interface PageBannerProps {
   title: string;
   subtitle: string;
+  label?: string;
+  labelIcon?: LucideIcon;
   children?: ReactNode;
 }
 
-export const PageBanner = ({ title, subtitle, children }: PageBannerProps) => {
+export const PageBanner = ({ title, subtitle, label, labelIcon, children }: PageBannerProps) => {
   return (
-    <section className="relative py-24 md:py-32 overflow-hidden bg-snyd-navy">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary rounded-full blur-3xl" />
-        <div className="absolute bottom-10 right-10 w-96 h-96 bg-secondary rounded-full blur-3xl" />
-      </div>
+    <section className="relative py-28 md:py-36 overflow-hidden bg-snyd-navy">
+      <TechGrid variant="dark" />
       
-      {/* Grid Pattern */}
-      <div 
-        className="absolute inset-0 opacity-5"
-        style={{
-          backgroundImage: `linear-gradient(hsl(var(--primary)) 1px, transparent 1px),
-                           linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)`,
-          backgroundSize: "50px 50px",
-        }}
-      />
+      {/* Gradient Orbs */}
+      <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl -translate-y-1/2" />
+      <div className="absolute top-1/2 right-1/4 w-64 h-64 bg-secondary/10 rounded-full blur-3xl -translate-y-1/2" />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-4 animate-fade-in">
+          {label && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="flex justify-center mb-6"
+            >
+              <HUDLabel icon={labelIcon} text={label} className="bg-white/5 border-white/10 text-white/80" />
+            </motion.div>
+          )}
+          
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-white mb-6"
+          >
             {title}
-          </h1>
-          <p className="text-lg md:text-xl text-white/70 animate-fade-in" style={{ animationDelay: "0.2s" }}>
+          </motion.h1>
+          
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto"
+          >
             {subtitle}
-          </p>
+          </motion.p>
+          
           {children}
         </div>
       </div>

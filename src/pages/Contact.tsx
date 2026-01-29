@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Card, CardContent } from "@/components/ui/card";
 import {
   Select,
   SelectContent,
@@ -14,15 +13,17 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
+import { PremiumCard } from "@/components/premium/PremiumCard";
+import { ScrollReveal } from "@/components/premium/ScrollReveal";
+import { HUDLabel } from "@/components/premium/HUDLabel";
 import { 
   MapPin, 
   Phone, 
   Mail, 
   Clock,
-  Instagram,
-  Linkedin,
-  MessageCircle,
-  Send
+  Send,
+  ArrowUpRight,
+  MessageSquare
 } from "lucide-react";
 
 const courses = [
@@ -43,12 +44,11 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 1000));
     
     toast({
-      title: "Message Sent!",
-      description: "We'll get back to you as soon as possible.",
+      title: "Message Sent",
+      description: "We'll get back to you within 24 hours.",
     });
     
     setIsSubmitting(false);
@@ -58,129 +58,129 @@ const Contact = () => {
   return (
     <Layout>
       <PageBanner
-        title="Contact SNYD TECH"
-        subtitle="Get in Touch for Technology Education & Drone Solutions"
+        title="Get in Touch"
+        subtitle="Ready to start your journey? Let's talk about how we can help."
+        label="Contact"
+        labelIcon={MessageSquare}
       />
 
-      <section className="section-padding">
+      <section className="section-padding bg-background">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-3 gap-12">
+          <div className="grid lg:grid-cols-5 gap-12">
             {/* Contact Info */}
-            <div className="lg:col-span-1 space-y-6">
-              <h2 className="text-2xl font-heading font-bold mb-6">Contact Information</h2>
+            <div className="lg:col-span-2 space-y-8">
+              <ScrollReveal direction="left">
+                <HUDLabel text="Contact Information" className="mb-6" />
+                <h2 className="mb-8">Let's Connect</h2>
+              </ScrollReveal>
               
-              <Card className="border-0 shadow-lg">
-                <CardContent className="p-6 space-y-6">
-                  <div className="flex gap-4">
-                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                      <MapPin className="w-6 h-6 text-primary" />
+              <ScrollReveal direction="left" delay={0.1}>
+                <PremiumCard className="p-6 space-y-6">
+                  {[
+                    {
+                      icon: MapPin,
+                      title: "Address",
+                      content: "76/2, Puttu Thoppu Main Rd, Ponnagaram, Madurai, TN 625016"
+                    },
+                    {
+                      icon: Phone,
+                      title: "Phone",
+                      content: "+91 (0452) XXXXXX"
+                    },
+                    {
+                      icon: Clock,
+                      title: "Hours",
+                      content: "Mon - Sat: 9AM - 6PM"
+                    },
+                    {
+                      icon: Mail,
+                      title: "Email",
+                      content: "info@snyd.in"
+                    },
+                  ].map((item, idx) => (
+                    <div key={idx} className="flex gap-4">
+                      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                        <item.icon className="w-5 h-5 text-primary" />
+                      </div>
+                      <div>
+                        <h4 className="font-heading font-medium text-sm mb-1">{item.title}</h4>
+                        <p className="text-muted-foreground text-sm">{item.content}</p>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="font-heading font-semibold mb-1">Address</h4>
-                      <p className="text-muted-foreground text-sm">
-                        76/2, Puttu Thoppu Main Rd, Ponnagaram, Puttuthoppu, Arappalayam, Madurai, Tamil Nadu 625016
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                      <Phone className="w-6 h-6 text-primary" />
-                    </div>
-                    <div>
-                      <h4 className="font-heading font-semibold mb-1">Phone</h4>
-                      <p className="text-muted-foreground text-sm">+91 (0452) XXXXXX</p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                      <Clock className="w-6 h-6 text-primary" />
-                    </div>
-                    <div>
-                      <h4 className="font-heading font-semibold mb-1">Hours</h4>
-                      <p className="text-muted-foreground text-sm">Mon - Sat: 9AM - 6PM</p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                      <Mail className="w-6 h-6 text-primary" />
-                    </div>
-                    <div>
-                      <h4 className="font-heading font-semibold mb-1">Email</h4>
-                      <p className="text-muted-foreground text-sm">info@snyd.in</p>
-                      <p className="text-muted-foreground text-sm">support@snyd.in</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+                  ))}
+                </PremiumCard>
+              </ScrollReveal>
 
               {/* Social Links */}
-              <Card className="border-0 shadow-lg">
-                <CardContent className="p-6">
-                  <h4 className="font-heading font-semibold mb-4">Connect With Us</h4>
+              <ScrollReveal direction="left" delay={0.2}>
+                <PremiumCard className="p-6">
+                  <h4 className="font-heading font-medium text-sm mb-4">Connect With Us</h4>
                   <div className="flex gap-3">
-                    <a
-                      href="https://instagram.com/snyd.in"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-12 h-12 rounded-lg bg-gradient-snyd flex items-center justify-center text-primary-foreground hover:opacity-90 transition-opacity"
-                    >
-                      <Instagram className="w-6 h-6" />
-                    </a>
-                    <a
-                      href="https://linkedin.com/company/snydtech"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-12 h-12 rounded-lg bg-[#0077B5] flex items-center justify-center text-white hover:opacity-90 transition-opacity"
-                    >
-                      <Linkedin className="w-6 h-6" />
-                    </a>
-                    <a
-                      href="https://wa.me/914520000000"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-12 h-12 rounded-lg bg-[#25D366] flex items-center justify-center text-white hover:opacity-90 transition-opacity"
-                    >
-                      <MessageCircle className="w-6 h-6" />
-                    </a>
+                    {[
+                      { href: "https://instagram.com/snyd.in", label: "Instagram" },
+                      { href: "https://linkedin.com/company/snydtech", label: "LinkedIn" },
+                      { href: "https://wa.me/914520000000", label: "WhatsApp" },
+                    ].map((social) => (
+                      <a
+                        key={social.label}
+                        href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 py-3 rounded-lg bg-muted/50 text-center text-xs font-medium text-muted-foreground hover:text-primary hover:bg-primary/5 transition-all flex items-center justify-center gap-2"
+                      >
+                        {social.label}
+                        <ArrowUpRight className="w-3 h-3" />
+                      </a>
+                    ))}
                   </div>
-                  <p className="text-muted-foreground text-sm mt-4">
-                    @snyd.in • 116 followers • 22 posts
-                  </p>
-                </CardContent>
-              </Card>
+                </PremiumCard>
+              </ScrollReveal>
             </div>
 
             {/* Contact Form */}
-            <div className="lg:col-span-2">
-              <Card className="border-0 shadow-lg">
-                <CardContent className="p-8">
-                  <h2 className="text-2xl font-heading font-bold mb-6">Send us a Message</h2>
+            <div className="lg:col-span-3">
+              <ScrollReveal direction="right">
+                <PremiumCard className="p-8">
+                  <HUDLabel text="Send a Message" className="mb-6" />
+                  <h3 className="font-heading text-xl font-semibold mb-8">Tell us about your goals</h3>
                   
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid sm:grid-cols-2 gap-6">
                       <div className="space-y-2">
-                        <Label htmlFor="name">Your Name</Label>
-                        <Input id="name" placeholder="John Doe" required />
+                        <Label htmlFor="name" className="text-sm">Your Name</Label>
+                        <Input 
+                          id="name" 
+                          placeholder="John Doe" 
+                          required 
+                          className="bg-muted/50 border-border/50 focus:border-primary/50 h-11"
+                        />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="email">Email Address</Label>
-                        <Input id="email" type="email" placeholder="john@example.com" required />
+                        <Label htmlFor="email" className="text-sm">Email Address</Label>
+                        <Input 
+                          id="email" 
+                          type="email" 
+                          placeholder="john@example.com" 
+                          required 
+                          className="bg-muted/50 border-border/50 focus:border-primary/50 h-11"
+                        />
                       </div>
                     </div>
 
                     <div className="grid sm:grid-cols-2 gap-6">
                       <div className="space-y-2">
-                        <Label htmlFor="phone">Phone Number</Label>
-                        <Input id="phone" placeholder="+91 98765 43210" />
+                        <Label htmlFor="phone" className="text-sm">Phone Number</Label>
+                        <Input 
+                          id="phone" 
+                          placeholder="+91 98765 43210" 
+                          className="bg-muted/50 border-border/50 focus:border-primary/50 h-11"
+                        />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="course">Interested In</Label>
+                        <Label htmlFor="course" className="text-sm">Interested In</Label>
                         <Select>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Select a Course" />
+                          <SelectTrigger className="bg-muted/50 border-border/50 focus:border-primary/50 h-11">
+                            <SelectValue placeholder="Select a program" />
                           </SelectTrigger>
                           <SelectContent>
                             {courses.map((course) => (
@@ -194,11 +194,11 @@ const Contact = () => {
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="message">Message</Label>
+                      <Label htmlFor="message" className="text-sm">Message</Label>
                       <Textarea
                         id="message"
-                        placeholder="Tell us about your learning goals..."
-                        className="min-h-[150px]"
+                        placeholder="Tell us about your learning goals and how we can help..."
+                        className="min-h-[140px] bg-muted/50 border-border/50 focus:border-primary/50 resize-none"
                         required
                       />
                     </div>
@@ -206,7 +206,7 @@ const Contact = () => {
                     <Button 
                       type="submit" 
                       size="lg" 
-                      className="w-full bg-gradient-snyd hover:opacity-90"
+                      className="w-full bg-gradient-primary hover:opacity-90 h-12"
                       disabled={isSubmitting}
                     >
                       {isSubmitting ? (
@@ -214,32 +214,38 @@ const Contact = () => {
                       ) : (
                         <>
                           Send Message
-                          <Send className="ml-2 w-5 h-5" />
+                          <Send className="ml-2 w-4 h-4" />
                         </>
                       )}
                     </Button>
                   </form>
-                </CardContent>
-              </Card>
+                </PremiumCard>
+              </ScrollReveal>
             </div>
           </div>
         </div>
       </section>
 
       {/* Map Section */}
-      <section className="py-16 bg-muted/50">
+      <section className="py-16 bg-muted/30 border-t border-border">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-heading font-bold text-center mb-8">Visit Our Center</h2>
-          <div className="aspect-video rounded-2xl overflow-hidden shadow-lg bg-muted flex items-center justify-center">
-            <div className="text-center p-8">
-              <MapPin className="w-16 h-16 text-primary mx-auto mb-4" />
-              <h3 className="font-heading font-bold text-xl mb-2">SNYD TECH</h3>
-              <p className="text-muted-foreground">
-                76/2, Puttu Thoppu Main Rd, Ponnagaram,<br />
-                Madurai, Tamil Nadu 625016
-              </p>
-            </div>
-          </div>
+          <ScrollReveal className="text-center mb-8">
+            <h3 className="font-heading font-semibold">Visit Our Center</h3>
+          </ScrollReveal>
+          <ScrollReveal>
+            <PremiumCard className="aspect-[21/9] flex items-center justify-center">
+              <div className="text-center p-8">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-primary flex items-center justify-center mx-auto mb-4">
+                  <MapPin className="w-8 h-8 text-white" />
+                </div>
+                <h4 className="font-heading font-semibold text-lg mb-2">SNYD TECH</h4>
+                <p className="text-muted-foreground text-sm">
+                  76/2, Puttu Thoppu Main Rd, Ponnagaram,<br />
+                  Madurai, Tamil Nadu 625016
+                </p>
+              </div>
+            </PremiumCard>
+          </ScrollReveal>
         </div>
       </section>
     </Layout>
