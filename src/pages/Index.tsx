@@ -180,7 +180,7 @@ const Index = () => {
 
       <SectionDivider />
 
-      {/* ADMS Enterprise Software Section */}
+      {/* SNYD ADAM Enterprise Platform Section */}
       <section className="section-padding bg-snyd-navy relative overflow-hidden">
         <TechGrid variant="dark" />
         
@@ -191,28 +191,26 @@ const Index = () => {
             <ScrollReveal direction="left">
               <HUDLabel 
                 icon={Server} 
-                text="Enterprise Software" 
+                text="Enterprise Platform" 
                 className="bg-white/5 border-white/10 text-white/80 mb-6" 
               />
-              <h2 className="text-white mb-6">
-                Drone Maintenance &<br />
-                Lifecycle Management
+              <h2 className="text-white mb-4">
+                SNYD ADAM
               </h2>
-              <p className="text-white/60 mb-6 leading-relaxed">
-                ADMS is our enterprise-grade platform for fleet traceability, configuration 
-                control, and compliance-ready maintenance records. Built for commercial 
-                operators and MROs who require audit-ready documentation.
+              <p className="text-lg text-white/80 mb-6 font-medium">
+                The first operating system for drone enterprises.
               </p>
               <p className="text-white/60 mb-8 leading-relaxed">
-                A single source of truth for every drone, every component, and every 
-                maintenance action in your fleet.
+                Five integrated modules—Core, Fleet, Comply, AI, and Ops—deliver unified 
+                asset management, regulatory compliance, and operational intelligence 
+                across your entire aerial fleet.
               </p>
               <Button 
                 asChild 
                 className="bg-white text-snyd-navy hover:bg-white/90"
               >
-                <Link to="/adms">
-                  Explore ADMS Platform
+                <Link to="/adam">
+                  Explore SNYD ADAM
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Link>
               </Button>
@@ -221,10 +219,10 @@ const Index = () => {
             <ScrollReveal direction="right">
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { title: "Fleet Traceability", desc: "Complete asset lifecycle tracking" },
-                  { title: "Configuration Control", desc: "Version-controlled baselines" },
-                  { title: "Compliance Ready", desc: "DGCA-aligned workflows" },
-                  { title: "Audit Trails", desc: "Immutable maintenance records" },
+                  { title: "ADAM Core", desc: "Maintenance & Asset Health" },
+                  { title: "ADAM Fleet", desc: "Operations & Scheduling" },
+                  { title: "ADAM Comply", desc: "DGCA & Regulatory Compliance" },
+                  { title: "ADAM AI", desc: "Predictive Intelligence" },
                 ].map((item, index) => (
                   <PremiumCard 
                     key={index} 
