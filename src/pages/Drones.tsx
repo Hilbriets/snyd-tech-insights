@@ -165,23 +165,23 @@ const Drones = () => {
 
             <ScrollReveal direction="right">
               <PremiumCard className="p-8 h-full border-primary/20">
-                <HUDLabel icon={Wrench} text="Enterprise Software" className="mb-6" />
+                <HUDLabel icon={Wrench} text="Enterprise Platform" className="mb-6" />
                 <h3 className="font-heading text-2xl font-semibold mb-4">
-                  ADMS Platform
+                  SNYD ADAM
                 </h3>
                 <p className="text-muted-foreground text-sm mb-2 font-mono">
-                  Lifecycle & Compliance Management
+                  Aerial Domain Asset Management
                 </p>
                 <p className="text-muted-foreground mb-6">
-                  Enterprise-grade software for drone fleet traceability, configuration 
-                  control, and audit-ready maintenance records.
+                  The first operating system for drone enterprises. Unified asset management, 
+                  compliance, and operations across your entire aerial fleet.
                 </p>
                 <ul className="space-y-3 mb-8">
                   {[
-                    "Fleet & Asset Management",
-                    "Configuration Version Control",
-                    "Compliance Tracking",
-                    "Immutable Audit Trails",
+                    "ADAM Core – Maintenance & Asset Health",
+                    "ADAM Fleet – Operations & Scheduling",
+                    "ADAM Comply – DGCA & Regulatory Compliance",
+                    "ADAM AI – Predictive Intelligence",
                   ].map((item, idx) => (
                     <li key={idx} className="flex items-center gap-3">
                       <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center">
@@ -192,8 +192,8 @@ const Drones = () => {
                   ))}
                 </ul>
                 <Button asChild className="bg-gradient-primary">
-                  <Link to="/adms">
-                    Explore ADMS
+                  <Link to="/adam">
+                    Explore SNYD ADAM
                     <ArrowRight className="ml-2 w-4 h-4" />
                   </Link>
                 </Button>
