@@ -164,35 +164,36 @@ const Drones = () => {
             </ScrollReveal>
 
             <ScrollReveal direction="right">
-              <PremiumCard className="p-8 h-full">
-                <HUDLabel icon={Wrench} text="Software Solution" className="mb-6" />
+              <PremiumCard className="p-8 h-full border-primary/20">
+                <HUDLabel icon={Wrench} text="Enterprise Software" className="mb-6" />
                 <h3 className="font-heading text-2xl font-semibold mb-4">
-                  Fleet Maintenance Platform
+                  ADMS Platform
                 </h3>
                 <p className="text-muted-foreground text-sm mb-2 font-mono">
-                  Enterprise Ready
+                  Lifecycle & Compliance Management
                 </p>
                 <p className="text-muted-foreground mb-6">
-                  End-to-end application for drone maintenance and fleet management.
+                  Enterprise-grade software for drone fleet traceability, configuration 
+                  control, and audit-ready maintenance records.
                 </p>
                 <ul className="space-y-3 mb-8">
                   {[
-                    "Inventory Tracking",
-                    "Configuration Logging",
-                    "Certificate Management",
-                    "Maintenance Scheduling",
+                    "Fleet & Asset Management",
+                    "Configuration Version Control",
+                    "Compliance Tracking",
+                    "Immutable Audit Trails",
                   ].map((item, idx) => (
                     <li key={idx} className="flex items-center gap-3">
-                      <div className="w-5 h-5 rounded-full bg-secondary/10 flex items-center justify-center">
-                        <ClipboardList className="w-3 h-3 text-secondary" />
+                      <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center">
+                        <ClipboardList className="w-3 h-3 text-primary" />
                       </div>
                       <span className="text-sm">{item}</span>
                     </li>
                   ))}
                 </ul>
-                <Button asChild variant="outline">
-                  <Link to="/contact">
-                    Learn More
+                <Button asChild className="bg-gradient-primary">
+                  <Link to="/adms">
+                    Explore ADMS
                     <ArrowRight className="ml-2 w-4 h-4" />
                   </Link>
                 </Button>

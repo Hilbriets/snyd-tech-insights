@@ -19,7 +19,8 @@ import {
   Users,
   Building2,
   Award,
-  Play
+  Play,
+  Server
 } from "lucide-react";
 
 const Index = () => {
@@ -173,6 +174,68 @@ const Index = () => {
               href="/services"
               index={2}
             />
+          </div>
+        </div>
+      </section>
+
+      <SectionDivider />
+
+      {/* ADMS Enterprise Software Section */}
+      <section className="section-padding bg-snyd-navy relative overflow-hidden">
+        <TechGrid variant="dark" />
+        
+        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px]" />
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <ScrollReveal direction="left">
+              <HUDLabel 
+                icon={Server} 
+                text="Enterprise Software" 
+                className="bg-white/5 border-white/10 text-white/80 mb-6" 
+              />
+              <h2 className="text-white mb-6">
+                Drone Maintenance &<br />
+                Lifecycle Management
+              </h2>
+              <p className="text-white/60 mb-6 leading-relaxed">
+                ADMS is our enterprise-grade platform for fleet traceability, configuration 
+                control, and compliance-ready maintenance records. Built for commercial 
+                operators and MROs who require audit-ready documentation.
+              </p>
+              <p className="text-white/60 mb-8 leading-relaxed">
+                A single source of truth for every drone, every component, and every 
+                maintenance action in your fleet.
+              </p>
+              <Button 
+                asChild 
+                className="bg-white text-snyd-navy hover:bg-white/90"
+              >
+                <Link to="/adms">
+                  Explore ADMS Platform
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Link>
+              </Button>
+            </ScrollReveal>
+            
+            <ScrollReveal direction="right">
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { title: "Fleet Traceability", desc: "Complete asset lifecycle tracking" },
+                  { title: "Configuration Control", desc: "Version-controlled baselines" },
+                  { title: "Compliance Ready", desc: "DGCA-aligned workflows" },
+                  { title: "Audit Trails", desc: "Immutable maintenance records" },
+                ].map((item, index) => (
+                  <PremiumCard 
+                    key={index} 
+                    className={`p-5 bg-white/5 border-white/10 ${index % 2 === 1 ? 'mt-6' : ''}`}
+                  >
+                    <h4 className="font-heading font-semibold text-white mb-1">{item.title}</h4>
+                    <p className="text-white/50 text-sm">{item.desc}</p>
+                  </PremiumCard>
+                ))}
+              </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
