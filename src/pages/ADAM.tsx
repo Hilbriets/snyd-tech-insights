@@ -123,7 +123,7 @@ const ADAM = () => {
     <Layout>
       {/* Hero */}
       <PageBanner
-        title="SNYD ADAM"
+        title="SNYD's ADAM"
         subtitle="The first operating system for drone enterprises. Unified asset management, compliance, and operations across your entire aerial fleet."
         label="Aerial Domain Asset Management"
         labelIcon={Server}
@@ -178,7 +178,7 @@ const ADAM = () => {
             <HUDLabel icon={Layers} text="Platform Overview" className="mb-6" />
             <h2 className="mb-6">An Operating System, Not a Tool</h2>
             <p className="text-muted-foreground text-lg mb-6">
-              SNYD ADAM is not another fleet tracker or maintenance spreadsheet replacement. 
+              SNYD's ADAM is not another fleet tracker or maintenance spreadsheet replacement. 
               It is the foundational operating system that integrates every aspect of drone 
               enterprise operations—from asset acquisition to retirement.
             </p>
@@ -271,7 +271,7 @@ const ADAM = () => {
             <HUDLabel icon={Users} text="Target Audience" className="mb-6" />
             <h2 className="mb-6">Built for Enterprise Operations</h2>
             <p className="text-muted-foreground">
-              SNYD ADAM is designed for organizations that require rigorous asset management 
+              SNYD's ADAM is designed for organizations that require rigorous asset management 
               and regulatory compliance.
             </p>
           </ScrollReveal>
@@ -293,7 +293,7 @@ const ADAM = () => {
           <ScrollReveal className="max-w-2xl mx-auto">
             <PremiumCard className="p-6 border-l-4 border-l-muted-foreground/30 bg-muted/50">
               <p className="text-muted-foreground text-sm italic">
-                SNYD ADAM is not designed for hobbyists or casual drone users. The platform is 
+                SNYD's ADAM is not designed for hobbyists or casual drone users. The platform is 
                 purpose-built for commercial and industrial operations where compliance, 
                 traceability, and audit readiness are non-negotiable.
               </p>
@@ -310,13 +310,13 @@ const ADAM = () => {
               <HUDLabel text="Our Qualifications" className="mb-6" />
               <h2 className="mb-6">Why SNYD TECH</h2>
               <p className="text-muted-foreground mb-6 leading-relaxed">
-                SNYD ADAM is not built by software generalists. It emerges from SNYD TECH's direct 
+                SNYD's ADAM is not built by software generalists. It emerges from SNYD TECH's direct 
                 involvement in drone operations, training, and maintenance—where the limitations 
                 of existing tools became painfully clear.
               </p>
               <p className="text-muted-foreground leading-relaxed">
                 Our team combines hands-on drone operations experience with software engineering 
-                capability—a rare intersection that ensures SNYD ADAM addresses real operational pain 
+                capability—a rare intersection that ensures SNYD's ADAM addresses real operational pain 
                 points, not hypothetical use cases.
               </p>
             </ScrollReveal>
@@ -360,7 +360,7 @@ const ADAM = () => {
             <HUDLabel text="Enterprise Enquiries" className="bg-white/5 border-white/10 text-white/80 mb-6" />
             <h2 className="text-white mb-4">Request a Platform Demonstration</h2>
             <p className="text-xl text-white/60 mb-10 max-w-2xl mx-auto">
-              Schedule a technical walkthrough with our team to evaluate SNYD ADAM for your fleet operations.
+              Schedule a technical walkthrough with our team to evaluate SNYD's ADAM for your fleet operations.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button 

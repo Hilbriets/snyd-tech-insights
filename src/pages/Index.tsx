@@ -180,7 +180,7 @@ const Index = () => {
 
       <SectionDivider />
 
-      {/* SNYD ADAM Enterprise Platform Section */}
+      {/* SNYD's ADAM Enterprise Platform Section */}
       <section className="section-padding bg-snyd-navy relative overflow-hidden">
         <TechGrid variant="dark" />
         
@@ -195,7 +195,7 @@ const Index = () => {
                 className="bg-white/5 border-white/10 text-white/80 mb-6" 
               />
               <h2 className="text-white mb-4">
-                SNYD ADAM
+                SNYD's ADAM
               </h2>
               <p className="text-lg text-white/80 mb-6 font-medium">
                 The first operating system for drone enterprises.
@@ -210,7 +210,7 @@ const Index = () => {
                 className="bg-white text-snyd-navy hover:bg-white/90"
               >
                 <Link to="/adam">
-                  Explore SNYD ADAM
+                  Explore SNYD's ADAM
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Link>
               </Button>

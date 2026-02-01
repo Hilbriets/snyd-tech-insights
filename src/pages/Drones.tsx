@@ -167,7 +167,7 @@ const Drones = () => {
               <PremiumCard className="p-8 h-full border-primary/20">
                 <HUDLabel icon={Wrench} text="Enterprise Platform" className="mb-6" />
                 <h3 className="font-heading text-2xl font-semibold mb-4">
-                  SNYD ADAM
+                  SNYD's ADAM
                 </h3>
                 <p className="text-muted-foreground text-sm mb-2 font-mono">
                   Aerial Domain Asset Management
@@ -193,7 +193,7 @@ const Drones = () => {
                 </ul>
                 <Button asChild className="bg-gradient-primary">
                   <Link to="/adam">
-                    Explore SNYD ADAM
+                    Explore SNYD's ADAM
                     <ArrowRight className="ml-2 w-4 h-4" />
                   </Link>
                 </Button>
