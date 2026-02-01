@@ -11,6 +11,7 @@ const navLinks = [
   { name: "About", href: "/about" },
   { name: "Services", href: "/services" },
   { name: "Drone Solutions", href: "/drones" },
+  { name: "Drone Software", href: "/adms" },
   { name: "Contact", href: "/contact" },
 ];
 
